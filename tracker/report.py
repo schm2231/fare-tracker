@@ -134,7 +134,40 @@ def build() -> dict:
         "min_history_days": config.MIN_HISTORY_DAYS,
         "deal_threshold_pct": round(100 * (config.DEAL_THRESHOLD - 1)),
         "cheapest": cheapest, "deals": deals, "patterns": patterns, "history": history,
+        "seasonal": dot_seasonal(),
     }
+
+
+def dot_seasonal() -> list[dict]:
+    """Quarter-of-year price index per US route from DOT data (2015+, minus 2020-21)."""
+    p = ROOT / "data" / "dot_baseline.csv"
+    if not p.exists():
+        return []
+    by = defaultdict(lambda: defaultdict(dict))
+    for r in csv.DictReader(p.open()):
+        y = int(r["year"])
+        if y >= 2015 and y not in (2020, 2021):
+            by[r["dest"]][y][int(r["quarter"])] = float(r["fare"])
+    out = []
+    for dest, years in by.items():
+        ratios = defaultdict(list)
+        for y, qs in years.items():
+            if len(qs) < 3:
+                continue
+            m = st.mean(qs.values())
+            for q, f in qs.items():
+                ratios[q].append(f / m)
+        if len(ratios) < 4:
+            continue
+        pct = {f"Q{q}": round(100 * (st.mean(ratios[q]) - 1)) for q in range(1, 5)}
+        recent = sorted((y, q, f) for y, qs in years.items() for q, f in qs.items())[-4:]
+        out.append({
+            "dest": dest, "city": config.CITY.get(dest, dest), **pct,
+            "cheapest": min(pct, key=pct.get), "priciest": max(pct, key=pct.get),
+            "recent_rt": round(2 * st.mean(f for _, _, f in recent)),
+            "years": len([y for y in years if len(years[y]) >= 3]),
+        })
+    return sorted(out, key=lambda x: x["city"])
 
 
 SHEET_FIELDS = ["watched", "city", "dest", "region", "kind", "price", "typical", "pct_vs_typical",
@@ -149,6 +182,12 @@ def write(data: dict) -> None:
             w = csv.DictWriter(f, fieldnames=SHEET_FIELDS, extrasaction="ignore")
             w.writeheader()
             w.writerows(items)
+    names = {"Q1": "Jan-Mar", "Q2": "Apr-Jun", "Q3": "Jul-Sep", "Q4": "Oct-Dec"}
+    with (DOCS / "seasonal.csv").open("w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["city", "dest", "Jan-Mar", "Apr-Jun", "Jul-Sep", "Oct-Dec", "cheapest", "typical_round_trip", "years"])
+        for x in data.get("seasonal", []):
+            w.writerow([x["city"], x["dest"], x["Q1"], x["Q2"], x["Q3"], x["Q4"], names[x["cheapest"]], x["recent_rt"], x["years"]])
     with (DOCS / "patterns.csv").open("w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["pattern", "label", "pct_vs_typical", "fares"])

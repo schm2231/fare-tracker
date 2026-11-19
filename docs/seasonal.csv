@@ -1,0 +1,13 @@
+city,dest,Jan-Mar,Apr-Jun,Jul-Sep,Oct-Dec,cheapest,typical_round_trip,years
+Boston,BOS,4,0,-4,-1,Jul-Sep,647,9
+Chicago,ORD,-1,3,0,-2,Oct-Dec,428,9
+Dallas,DFW,8,0,-6,-2,Jul-Sep,491,9
+Fort Lauderdale,FLL,-1,-3,0,4,Apr-Jun,492,9
+Houston,IAH,10,-2,-7,-1,Jul-Sep,558,9
+Los Angeles,LAX,6,-2,-6,2,Jul-Sep,511,9
+Miami,MIA,-1,-4,1,4,Apr-Jun,484,9
+New York,LGA,-3,1,0,1,Jan-Mar,721,9
+Phoenix,PHX,3,-2,-3,2,Jul-Sep,456,9
+San Francisco,SFO,10,0,-8,-2,Jul-Sep,561,9
+Tampa,TPA,-4,-1,3,2,Jan-Mar,427,9
+Washington DC,DCA,-2,4,-1,0,Jan-Mar,533,9

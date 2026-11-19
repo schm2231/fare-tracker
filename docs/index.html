@@ -62,6 +62,13 @@ svg text{fill:var(--muted);font-size:11px}
     <div class="grid" id="patterns"></div>
   </section>
 
+  <section class="card" id="season-card">
+    <h2>Best time of year (US routes)</h2>
+    <div class="sub" style="margin-bottom:10px">From 10 years of US Department of Transportation fare data (2020-21 left out). Each cell shows how that quarter's average fare compares with the route's yearly average. Green is the cheapest quarter, red the priciest.</div>
+    <div class="scroll"><table id="season"></table></div>
+    <div class="note">"Typical" is the average round-trip fare over the last four quarters DOT has published, which runs about 6 months behind. Europe, Canada and South America aren't in DOT's domestic data, so those will come from our own logs over time.</div>
+  </section>
+
   <section class="card">
     <h2>Route history</h2>
     <select id="route"></select>
@@ -131,6 +138,11 @@ fetch("data.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
   sel.innerHTML=dests.map(x=>`<option value="${x}">${esc((d.cheapest.find(r=>r.dest===x)||{}).city||x)} (${x})</option>`).join("");
   sel.value=load("route",dests[0]); if(!sel.value) sel.value=dests[0];
   sel.onchange=()=>{store("route",sel.value);hist(sel.value)}; hist(sel.value);
+  const se=d.seasonal||[], Q={Q1:"Jan–Mar",Q2:"Apr–Jun",Q3:"Jul–Sep",Q4:"Oct–Dec"};
+  const cell=(x,q)=>{const v=x[q];const c=q===x.cheapest?"good":q===x.priciest?"bad":"na";return '<td><span class="pill '+c+'">'+(v>0?"+":"")+v+'%</span></td>'};
+  document.getElementById("season").innerHTML=se.length?'<tr><th>Destination</th>'+Object.values(Q).map(q=>'<th>'+q+'</th>').join("")+'<th>Cheapest</th><th class="hide-sm">Typical</th></tr>'+
+    se.map(x=>'<tr><td><b>'+esc(x.city)+'</b> <span class="sub">'+x.dest+'</span></td>'+["Q1","Q2","Q3","Q4"].map(q=>cell(x,q)).join("")+'<td>'+Q[x.cheapest]+'</td><td class="hide-sm">$'+x.recent_rt+'</td></tr>').join("")
+    :'<tr><td class="sub">DOT data not loaded yet.</td></tr>';
   render();
 }).catch(e=>{document.getElementById("meta").textContent="Couldn't load data.json: "+e.message});
 </script>
