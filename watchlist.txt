@@ -1,0 +1,6 @@
+# Routes you care most about. One destination code per line, optionally
+# followed by "wknd" or "week" to watch only that trip type.
+# Watched routes are listed first in the daily email and on the page.
+# Examples:
+# DEN
+# LHR week

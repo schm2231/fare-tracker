@@ -1,0 +1,5 @@
+watched,city,dest,region,kind,price,typical,pct_vs_typical,depart_day,depart,return,nights,airlines,stops,history_days
+False,Denver,DEN,USA,week,76,,,Sat,2027-01-16,2027-01-23,7,F9,0,0
+False,Chicago,ORD,USA,wknd,123,,,Sat,2026-12-19,2026-12-22,3,SY,0,0
+False,Chicago,ORD,USA,week,138,,,Wed,2026-12-23,2026-12-30,7,Delta,0,0
+False,Denver,DEN,USA,wknd,153,,,Thu,2026-12-03,2026-12-05,2,F9,0,0

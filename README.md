@@ -8,9 +8,14 @@ US, Canada, Europe and South America, and appends them to `data/fares/YYYY-MM.cs
 Over time this answers: which departure/return days are cheapest, how far
 ahead to book, which months are cheap, and whether today's fare is a deal.
 
+- **Page:** https://schm2231.github.io/fare-tracker/
+- **Google Sheet:** `=IMPORTDATA("https://raw.githubusercontent.com/schm2231/fare-tracker/main/docs/latest.csv")` (also `deals.csv`, `patterns.csv`)
+- **Email:** set repo secrets `GMAIL_USER`, `GMAIL_APP_PASSWORD` (Gmail app password), optional `EMAIL_TO` (comma-separated).
+- **Watchlist:** add destination codes to `watchlist.txt`. Watched routes are starred and listed first.
 - Edit destinations and trip shapes in `tracker/config.py`.
 - Run by hand: Actions tab → "Daily fare log" → Run workflow (set a limit like 10 for a quick test).
 - Local: `pip install -r requirements.txt && python -m tracker.run --limit 5`
 
-Data source: Google Flights via the open-source `fast-flights` scraper. It's
-free and unofficial, so it can break or be blocked. A red run means check the log.
+Data sources: the free Travelpayouts Data API (secret `TRAVELPAYOUTS_TOKEN`, main source)
+plus a small Google Flights sample via the unofficial `fast-flights` scraper, which is
+mostly blocked from GitHub runners. A red run means nothing was priced, so check the log.

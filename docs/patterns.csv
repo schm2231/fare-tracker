@@ -1,0 +1,25 @@
+pattern,label,pct_vs_typical,fares
+depart_day,Tue,0,1
+depart_day,Wed,22,5
+depart_day,Thu,0,7
+depart_day,Fri,31,4
+depart_day,Sat,-45,3
+depart_day,Sun,48,2
+return_day,Mon,-6,2
+return_day,Tue,-33,1
+return_day,Wed,-21,3
+return_day,Thu,0,1
+return_day,Fri,18,1
+return_day,Sat,-29,4
+return_day,Sun,40,10
+lead_time,< 2 wks,21,8
+lead_time,2-4 wks,0,2
+lead_time,1-2 mo,-16,9
+lead_time,2-3 mo,0,1
+lead_time,3-4 mo,63,1
+lead_time,4+ mo,103,1
+travel_month,2026-11,24,7
+travel_month,2026-12,-7,9
+travel_month,2027-01,-20,4
+travel_month,2027-03,63,1
+travel_month,2027-04,103,1

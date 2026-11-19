@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSP Fare Tracker</title>
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#1d1f23;--muted:#6b7078;--line:#e4e4e0;--accent:#2563eb;--good:#15803d;--goodbg:#dcfce7;--bad:#b91c1c;--barpos:#ef9a9a;--barneg:#86c99a}
+@media (prefers-color-scheme:dark){:root{--bg:#121417;--card:#1b1e22;--ink:#e8e9eb;--muted:#9aa0a8;--line:#2b2f35;--accent:#60a5fa;--good:#4ade80;--goodbg:#14301f;--bad:#f87171;--barpos:#9b4b4b;--barneg:#2f7a48}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:17px;margin:0 0 10px}
+.sub{color:var(--muted);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:16px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tabs button{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;font-size:13px;cursor:pointer}
+.tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+.price{font-weight:600;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;border-radius:6px;padding:1px 6px;font-size:12px}
+.pill.good{background:var(--goodbg);color:var(--good)}.pill.bad{color:var(--bad)}.pill.na{color:var(--muted)}
+.star{color:#eab308}
+a{color:var(--accent);text-decoration:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.bars .row{display:grid;grid-template-columns:70px 1fr 48px;align-items:center;gap:8px;font-size:13px;margin:3px 0}
+.bars .track{position:relative;height:14px}
+.bars .mid{position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--line)}
+.bars .bar{position:absolute;top:0;height:14px;border-radius:3px}
+.bars .row.low{opacity:.4}
+.bars .v{text-align:right;font-variant-numeric:tabular-nums}
+.note{color:var(--muted);font-size:12px;margin-top:8px}
+select{font:inherit;padding:4px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+svg text{fill:var(--muted);font-size:11px}
+.scroll{overflow-x:auto}
+@media (max-width:600px){.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<main>
+  <h1>MSP fare tracker</h1>
+  <div class="sub" id="meta">Loading…</div>
+
+  <section class="card" id="deals-card">
+    <h2>Deals today</h2>
+    <div id="deals"></div>
+  </section>
+
+  <section class="card">
+    <h2>Cheapest trips right now</h2>
+    <div class="tabs" id="kind-tabs"></div>
+    <div class="tabs" id="region-tabs"></div>
+    <div class="scroll"><table id="cheap"></table></div>
+    <div class="note">"vs typical" compares today's cheapest fare with the median of the cheapest fare seen each previous day. Prices are round trip, economy, 1 adult.</div>
+  </section>
+
+  <section class="card">
+    <h2>When is it cheapest?</h2>
+    <div class="sub" style="margin-bottom:10px">How much above or below its route's typical price a fare is, averaged across all routes. Green is cheaper. Faded rows have too little data to trust yet.</div>
+    <div class="grid" id="patterns"></div>
+  </section>
+
+  <section class="card">
+    <h2>Route history</h2>
+    <select id="route"></select>
+    <div id="hist" style="margin-top:10px"></div>
+  </section>
+</main>
+<script>
+const AIR={F9:"Frontier",SY:"Sun Country",WN:"Southwest",DL:"Delta",AA:"American",UA:"United",AS:"Alaska",B6:"JetBlue",NK:"Spirit",AC:"Air Canada",WS:"WestJet",FI:"Icelandair",AF:"Air France",KL:"KLM",BA:"British Airways",LH:"Lufthansa",IB:"Iberia",TP:"TAP",AM:"Aeromexico",AV:"Avianca",LA:"LATAM",CM:"Copa",VS:"Virgin Atlantic",EI:"Aer Lingus",LX:"Swiss",SK:"SAS",HA:"Hawaiian"};
+const air=s=>(s||"").split("/").map(c=>AIR[c]||c).join(" / ");
+const fmtD=s=>{const d=new Date(s+"T12:00:00");return d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})};
+const gf=(r)=>`https://www.google.com/travel/flights?q=${encodeURIComponent(`Flights from MSP to ${r.dest} on ${r.depart} through ${r.return}`)}`;
+const pill=r=>r.pct_vs_typical==null?`<span class="pill na">new</span>`:r.pct_vs_typical<=-10?`<span class="pill good">${r.pct_vs_typical}%</span>`:r.pct_vs_typical>=10?`<span class="pill bad">+${r.pct_vs_typical}%</span>`:`<span class="pill na">${r.pct_vs_typical>0?"+":""}${r.pct_vs_typical}%</span>`;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let D, kind="wknd", region="All";
+function store(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function load(k,d){try{return localStorage.getItem(k)||d}catch(e){return d}}
+
+function rowHtml(r){return `<tr><td>${r.watched?'<span class="star">★</span> ':''}<b>${esc(r.city)}</b> <span class="sub">${r.dest}</span></td>
+<td class="price">$${r.price}</td><td>${pill(r)}${r.typical?`<div class="sub">typ. $${r.typical}</div>`:""}</td>
+<td>${fmtD(r.depart)} → ${fmtD(r.return)}<div class="sub">${r.nights} nights</div></td>
+<td class="hide-sm">${esc(air(r.airlines))}<div class="sub">${r.stops?r.stops+" stop"+(r.stops>1?"s":""):"nonstop"}</div></td>
+<td><a href="${gf(r)}" target="_blank" rel="noopener">Check</a></td></tr>`}
+const head=`<tr><th>Destination</th><th>Price</th><th>vs typical</th><th>Dates</th><th class="hide-sm">Airline</th><th></th></tr>`;
+
+function tabs(el,opts,cur,set){el.innerHTML=opts.map(([v,l])=>`<button class="${v===cur?"on":""}" data-v="${v}">${l}</button>`).join("");
+  el.onclick=e=>{const b=e.target.closest("button");if(b){set(b.dataset.v);render()}}}
+
+function render(){
+  tabs(document.getElementById("kind-tabs"),[["wknd","Weekends"],["week","Week-long"]],kind,v=>{kind=v;store("kind",v)});
+  tabs(document.getElementById("region-tabs"),["All","USA","Canada","Europe","South America"].map(x=>[x,x]),region,v=>{region=v;store("region",v)});
+  const rows=D.cheapest.filter(r=>r.kind===kind&&(region==="All"||r.region===region));
+  document.getElementById("cheap").innerHTML=rows.length?head+rows.map(rowHtml).join(""):`<tr><td class="sub">No fares logged for this filter yet.</td></tr>`;
+}
+
+function bars(title,items){
+  const max=Math.max(25,...items.map(i=>Math.abs(i.pct)));
+  return `<div class="bars"><div class="sub" style="font-weight:600;color:var(--ink);margin-bottom:4px">${title}</div>`+items.map(i=>{
+    const w=Math.abs(i.pct)/max*50, left=i.pct<0?50-w:50;
+    return `<div class="row ${i.n<20?"low":""}" title="${i.n} fares"><span>${esc(i.label)}</span><div class="track"><div class="mid"></div><div class="bar" style="left:${left}%;width:${w}%;background:${i.pct<0?"var(--barneg)":"var(--barpos)"}"></div></div><span class="v">${i.pct>0?"+":""}${i.pct}%</span></div>`}).join("")+`</div>`;
+}
+
+function monthLabel(m){const [y,mo]=m.split("-");return new Date(+y,+mo-1,1).toLocaleDateString("en-US",{month:"short",year:"2-digit"})}
+
+function hist(dest){
+  const h=D.history[dest]||[], el=document.getElementById("hist");
+  if(h.length<2){el.innerHTML=`<div class="sub">${h.length?`One day logged so far: weekend $${h[0].wknd??"–"}, week-long $${h[0].week??"–"}. A trend line appears after the second day.`:"No data yet."}</div>`;return}
+  const W=900,H=220,P=36,vals=h.flatMap(x=>[x.wknd,x.week]).filter(v=>v!=null),lo=Math.min(...vals)*.9,hi=Math.max(...vals)*1.05;
+  const X=i=>P+i*(W-2*P)/(h.length-1),Y=v=>H-P-(v-lo)/(hi-lo)*(H-2*P);
+  const line=(k,c)=>{const pts=h.map((x,i)=>x[k]!=null?`${X(i)},${Y(x[k])}`:null).filter(Boolean);return pts.length?`<polyline fill="none" stroke="${c}" stroke-width="2" points="${pts.join(" ")}"/>`:""};
+  const ticks=[lo,(lo+hi)/2,hi].map(v=>`<text x="4" y="${Y(v)+4}">$${Math.round(v)}</text>`).join("");
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Daily cheapest fare to ${dest}">${ticks}${line("wknd","var(--accent)")}${line("week","#f59e0b")}
+  <text x="${P}" y="${H-8}">${fmtD(h[0].date)}</text><text x="${W-P}" y="${H-8}" text-anchor="end">${fmtD(h[h.length-1].date)}</text></svg>
+  <div class="sub"><span style="color:var(--accent)">━</span> weekend &nbsp; <span style="color:#f59e0b">━</span> week-long (cheapest fare seen each day)</div>`;
+}
+
+fetch("data.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
+  D=d; kind=load("kind","wknd"); region=load("region","All");
+  if(!d.n_rows){document.getElementById("meta").textContent="No fares logged yet.";return}
+  document.getElementById("meta").textContent=`Updated ${fmtD(d.latest)} · ${d.n_days} day${d.n_days>1?"s":""} of history · ${d.n_rows.toLocaleString()} fares logged`;
+  const dl=document.getElementById("deals");
+  dl.innerHTML=d.deals.length?`<div class="scroll"><table>${head}${d.deals.map(rowHtml).join("")}</table></div>`
+    :d.n_days<d.min_history_days?`<div class="sub">Building history: ${d.n_days} of ${d.min_history_days} days logged before deal alerts start. A deal is a fare ${-d.deal_threshold_pct}% or more below that route's typical price.</div>`
+    :`<div class="sub">Nothing ${-d.deal_threshold_pct}%+ below typical today.</div>`;
+  const p=d.patterns;
+  document.getElementById("patterns").innerHTML=bars("Departure day",p.depart_day)+bars("Return day",p.return_day)+bars("Booking ahead",p.lead_time)+bars("Travel month",p.travel_month.map(x=>({...x,label:monthLabel(x.label)})));
+  const sel=document.getElementById("route"), dests=Object.keys(d.history).sort((a,b)=>(d.cheapest.find(r=>r.dest===a)?.city||a).localeCompare(d.cheapest.find(r=>r.dest===b)?.city||b));
+  sel.innerHTML=dests.map(x=>`<option value="${x}">${esc((d.cheapest.find(r=>r.dest===x)||{}).city||x)} (${x})</option>`).join("");
+  sel.value=load("route",dests[0]); if(!sel.value) sel.value=dests[0];
+  sel.onchange=()=>{store("route",sel.value);hist(sel.value)}; hist(sel.value);
+  render();
+}).catch(e=>{document.getElementById("meta").textContent="Couldn't load data.json: "+e.message});
+</script>
+</body>
+</html>
