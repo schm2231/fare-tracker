@@ -24,8 +24,15 @@ def main(argv=None) -> int:
     tp_rows, tp_failed = travelpayouts.collect(today, dests[:2] if args.limit else dests)
     print(f"travelpayouts: {len(tp_rows)} trips, {tp_failed} failed calls")
 
+    tp_count = {}
+    for r in tp_rows:
+        tp_count[r["dest"]] = tp_count.get(r["dest"], 0) + 1
+
     for dest in dests:
-        for pattern, depart, ret in sampler.trips_for(today, dest, config.GOOGLE_SAMPLES_PER_DEST):
+        # Travelpayouts has almost nothing for Europe/South America from MSP,
+        # so spend the Google budget where it's thin.
+        k = config.GOOGLE_SAMPLES_THIN if tp_count.get(dest, 0) < 3 else config.GOOGLE_SAMPLES_PER_DEST
+        for pattern, depart, ret in sampler.trips_for(today, dest, k):
             if args.limit and done >= args.limit:
                 break
             done += 1
