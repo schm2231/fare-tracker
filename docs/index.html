@@ -53,7 +53,7 @@ svg text{fill:var(--muted);font-size:11px}
     <div class="tabs" id="kind-tabs"></div>
     <div class="tabs" id="region-tabs"></div>
     <div class="scroll"><table id="cheap"></table></div>
-    <div class="note">"vs typical" compares today's cheapest fare with the median of the cheapest fare seen each previous day. Prices are round trip, economy, 1 adult.</div>
+    <div class="note">"vs typical" compares today's cheapest fare with the median of the cheapest fare seen each previous day. Prices are round trip, economy, 1 adult. "DOT avg" is what travelers actually paid on average for that route in the same quarter over the last 3 years (US DOT data, all fare classes, so it runs high). "Low-fare" is the average paid on the cheapest airline. US routes only, excluding Honolulu.</div>
   </section>
 
   <section class="card">
@@ -88,10 +88,11 @@ function load(k,d){try{return localStorage.getItem(k)||d}catch(e){return d}}
 
 function rowHtml(r){return `<tr><td>${r.watched?'<span class="star">★</span> ':''}<b>${esc(r.city)}</b> <span class="sub">${r.dest}</span></td>
 <td class="price">$${r.price}</td><td>${pill(r)}${r.typical?`<div class="sub">typ. $${r.typical}</div>`:""}</td>
+<td class="hide-sm">${r.dot_avg?`$${r.dot_avg}<div class="sub">${r.pct_vs_dot>0?"+":""}${r.pct_vs_dot}% · low-fare $${r.dot_low}</div>`:`<span class="sub">–</span>`}</td>
 <td>${fmtD(r.depart)} → ${fmtD(r.return)}<div class="sub">${r.nights} nights</div></td>
 <td class="hide-sm">${esc(air(r.airlines))}<div class="sub">${r.stops?r.stops+" stop"+(r.stops>1?"s":""):"nonstop"}</div></td>
 <td><a href="${gf(r)}" target="_blank" rel="noopener">Check</a></td></tr>`}
-const head=`<tr><th>Destination</th><th>Price</th><th>vs typical</th><th>Dates</th><th class="hide-sm">Airline</th><th></th></tr>`;
+const head=`<tr><th>Destination</th><th>Price</th><th>vs typical</th><th class="hide-sm">DOT avg</th><th>Dates</th><th class="hide-sm">Airline</th><th></th></tr>`;
 
 function tabs(el,opts,cur,set){el.innerHTML=opts.map(([v,l])=>`<button class="${v===cur?"on":""}" data-v="${v}">${l}</button>`).join("");
   el.onclick=e=>{const b=e.target.closest("button");if(b){set(b.dataset.v);render()}}}

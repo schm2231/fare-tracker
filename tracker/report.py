@@ -73,6 +73,8 @@ def build() -> dict:
     for k, v in by_route.items():
         route_median[k] = st.median(v)
 
+    dot = dot_quarter_avg()
+
     cheapest, deals = [], []
     for (dest, kind), series in daily_min.items():
         today = series.get(latest)
@@ -90,6 +92,11 @@ def build() -> dict:
             "typical": round(typical) if typical else None, "pct_vs_typical": pct,
             "history_days": len(past), "watched": is_watched(dest, kind, wl),
         }
+        # What people paid on this route in the departure's quarter (DOT, US routes only).
+        b = dot.get((dest, (dt.date.fromisoformat(today["depart"]).month - 1) // 3 + 1))
+        item["dot_avg"] = b["avg_rt"] if b else None
+        item["dot_low"] = b["low_rt"] if b else None
+        item["pct_vs_dot"] = round(100 * (today["price_usd"] / b["avg_rt"] - 1)) if b else None
         cheapest.append(item)
         if (typical and len(past) >= config.MIN_HISTORY_DAYS
                 and today["price_usd"] <= typical * config.DEAL_THRESHOLD):
@@ -138,6 +145,27 @@ def build() -> dict:
     }
 
 
+def dot_quarter_avg(years: int = 3, since: int = 2022) -> dict[tuple[str, int], dict]:
+    """(dest, quarter) -> passenger-weighted DOT round-trip fares for that quarter,
+    over its most recent `years` years (2022 on, to skip pandemic fares)."""
+    p = ROOT / "data" / "dot_baseline.csv"
+    if not p.exists():
+        return {}
+    by = defaultdict(list)
+    for r in csv.DictReader(p.open()):
+        if int(r["year"]) >= since and r["fare"]:
+            by[(r["dest"], int(r["quarter"]))].append(r)
+    out = {}
+    for k, rs in by.items():
+        rs = sorted(rs, key=lambda r: int(r["year"]))[-years:]
+        w = [float(r["passengers"] or 1) for r in rs]
+        tot = sum(w)
+        avg = sum(float(r["fare"]) * x for r, x in zip(rs, w)) / tot
+        low = sum(float(r["fare_low"] or r["fare"]) * x for r, x in zip(rs, w)) / tot
+        out[k] = {"avg_rt": round(2 * avg), "low_rt": round(2 * low)}
+    return out
+
+
 def dot_seasonal() -> list[dict]:
     """Quarter-of-year price index per US route from DOT data (2015+, minus 2020-21)."""
     p = ROOT / "data" / "dot_baseline.csv"
@@ -171,7 +199,8 @@ def dot_seasonal() -> list[dict]:
 
 
 SHEET_FIELDS = ["watched", "city", "dest", "region", "kind", "price", "typical", "pct_vs_typical",
-                "depart_day", "depart", "return", "nights", "airlines", "stops", "history_days"]
+                "depart_day", "depart", "return", "nights", "airlines", "stops", "history_days",
+                "dot_avg", "pct_vs_dot", "dot_low"]
 
 
 def write(data: dict) -> None:

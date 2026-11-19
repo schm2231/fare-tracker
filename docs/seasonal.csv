@@ -1,13 +1,25 @@
 city,dest,Jan-Mar,Apr-Jun,Jul-Sep,Oct-Dec,cheapest,typical_round_trip,years
-Boston,BOS,4,0,-4,-1,Jul-Sep,647,9
-Chicago,ORD,-1,3,0,-2,Oct-Dec,428,9
+Atlanta,ATL,4,-1,-3,-1,Jul-Sep,614,9
+Austin,AUS,6,1,-7,0,Jul-Sep,532,9
+Boston,BOS,4,1,-4,-1,Jul-Sep,637,9
+Chicago,ORD,-2,3,0,-1,Jan-Mar,419,9
 Dallas,DFW,8,0,-6,-2,Jul-Sep,491,9
-Fort Lauderdale,FLL,-1,-3,0,4,Apr-Jun,492,9
-Houston,IAH,10,-2,-7,-1,Jul-Sep,558,9
-Los Angeles,LAX,6,-2,-6,2,Jul-Sep,511,9
-Miami,MIA,-1,-4,1,4,Apr-Jun,484,9
-New York,LGA,-3,1,0,1,Jan-Mar,721,9
-Phoenix,PHX,3,-2,-3,2,Jul-Sep,456,9
-San Francisco,SFO,10,0,-8,-2,Jul-Sep,561,9
-Tampa,TPA,-4,-1,3,2,Jan-Mar,427,9
-Washington DC,DCA,-2,4,-1,0,Jan-Mar,533,9
+Denver,DEN,0,-1,0,1,Apr-Jun,349,9
+Fort Lauderdale,FLL,-1,-4,1,4,Apr-Jun,487,9
+Fort Myers,RSW,6,-4,-6,4,Jul-Sep,451,9
+Houston,IAH,9,-1,-7,-1,Jul-Sep,524,9
+Las Vegas,LAS,7,-2,-7,3,Jul-Sep,417,9
+Los Angeles,LAX,5,-1,-5,2,Jul-Sep,564,9
+Miami,MIA,-1,-4,1,4,Apr-Jun,487,9
+Nashville,BNA,4,5,-5,-4,Jul-Sep,422,9
+New Orleans,MSY,10,1,-10,-1,Jul-Sep,525,9
+New York,LGA,2,1,-2,-1,Jul-Sep,597,9
+Orlando,MCO,6,-4,-7,5,Jul-Sep,414,9
+Phoenix,PHX,3,-2,-2,1,Apr-Jun,448,9
+Portland,PDX,5,1,-3,-3,Jul-Sep,487,9
+Salt Lake City,SLC,4,-2,-2,0,Apr-Jun,664,9
+San Diego,SAN,4,-1,-3,0,Jul-Sep,555,9
+San Francisco,SFO,8,0,-6,-1,Jul-Sep,582,9
+Seattle,SEA,4,0,-1,-4,Oct-Dec,492,9
+Tampa,TPA,-4,-1,4,2,Jan-Mar,423,9
+Washington DC,DCA,3,2,-5,0,Jul-Sep,481,9
