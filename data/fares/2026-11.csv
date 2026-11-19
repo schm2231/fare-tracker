@@ -1,3 +1,8 @@
 observed,origin,dest,pattern,depart,return,nights,lead_days,price_usd,airlines,stops,duration_min
 2026-11-19,MSP,DEN,week-sun-sun,2026-12-13,2026-12-20,7,24,347,Southwest,0,145
 2026-11-19,MSP,DEN,wknd-thu-sun,2027-01-07,2027-01-10,3,49,277,Southwest,0,140
+2026-11-19,MSP,DEN,week-wed-wed,2027-01-06,2027-01-13,7,48,177,United,0,148
+2026-11-19,MSP,DEN,week-sun-sun,2027-03-07,2027-03-14,7,108,427,Southwest,0,140
+2026-11-19,MSP,ORD,week-wed-wed,2026-12-23,2026-12-30,7,34,138,Delta,0,116
+2026-11-19,MSP,ORD,wknd-fri-sun,2027-01-22,2027-01-24,2,64,183,Frontier,1,293
+2026-11-19,MSP,ORD,wknd-fri-sun,2027-04-02,2027-04-04,2,134,372,United,0,89
