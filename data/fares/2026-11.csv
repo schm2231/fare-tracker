@@ -1,0 +1,3 @@
+observed,origin,dest,pattern,depart,return,nights,lead_days,price_usd,airlines,stops,duration_min
+2026-11-19,MSP,DEN,week-sun-sun,2026-12-13,2026-12-20,7,24,347,Southwest,0,145
+2026-11-19,MSP,DEN,wknd-thu-sun,2027-01-07,2027-01-10,3,49,277,Southwest,0,140
