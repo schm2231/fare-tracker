@@ -1,0 +1,39 @@
+name: Daily fare log
+
+on:
+  schedule:
+    - cron: "0 11 * * *"   # 5 AM Minneapolis (CST)
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Stop after N requests (blank = full run)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fare-log
+  cancel-in-progress: false
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Price trips
+        run: python -m tracker.run ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+      - name: Commit new data
+        if: always()
+        run: |
+          git config user.name "fare-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Fare log $(date -u +%F)"
+          git push
