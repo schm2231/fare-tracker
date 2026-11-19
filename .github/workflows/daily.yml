@@ -19,7 +19,7 @@ concurrency:
 jobs:
   log:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -28,7 +28,7 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Price trips
-        run: python -m tracker.run ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
+        run: python -u -m tracker.run ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
       - name: Commit new data
         if: always()
         run: |
