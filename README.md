@@ -19,3 +19,11 @@ ahead to book, which months are cheap, and whether today's fare is a deal.
 Data sources: the free Travelpayouts Data API (secret `TRAVELPAYOUTS_TOKEN`, main source)
 plus a small Google Flights sample via the unofficial `fast-flights` scraper, which is
 mostly blocked from GitHub runners. A red run means nothing was priced, so check the log.
+
+## Local run (Jon's PC)
+
+Google blocks most requests from GitHub, so `local_run.ps1` scrapes the 25
+international destinations from a home connection every evening (Windows Task
+Scheduler, task "MSP fare tracker"), writes `data/fares/YYYY-MM-local.csv`
+and pushes it. The next morning's GitHub run folds it into the page, Sheet
+and email. Log: `local_run.log`.

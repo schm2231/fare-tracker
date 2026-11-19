@@ -14,14 +14,19 @@ from . import config, fetch, sampler, store, travelpayouts
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, help="stop after N requests (smoke test)")
-    ap.add_argument("--dest", help="comma-separated destinations to override the list")
+    ap.add_argument("--dest", help="comma-separated destinations, or 'international' / 'domestic'")
+    ap.add_argument("--google-only", action="store_true", help="skip Travelpayouts")
+    ap.add_argument("--samples", type=int, help="Google trips per destination (overrides config)")
+    ap.add_argument("--tag", default="", help="suffix for the output file and source, e.g. 'local'")
     args = ap.parse_args(argv)
 
     today = dt.date.today()
-    dests = args.dest.split(",") if args.dest else config.DESTINATIONS
+    named = {"international": config.INTERNATIONAL, "domestic": config.DOMESTIC}
+    dests = named.get(args.dest) or (args.dest.split(",") if args.dest else config.DESTINATIONS)
+    source = "google" + (f"-{args.tag}" if args.tag else "")
     rows, ok, empty, failed, done = [], 0, 0, 0, 0
 
-    tp_rows, tp_failed = travelpayouts.collect(today, dests[:2] if args.limit else dests)
+    tp_rows, tp_failed = ([], 0) if args.google_only else travelpayouts.collect(today, dests[:2] if args.limit else dests)
     print(f"travelpayouts: {len(tp_rows)} trips, {tp_failed} failed calls")
 
     tp_count = {}
@@ -31,7 +36,7 @@ def main(argv=None) -> int:
     for dest in dests:
         # Travelpayouts has almost nothing for Europe/South America from MSP,
         # so spend the Google budget where it's thin.
-        k = config.GOOGLE_SAMPLES_THIN if tp_count.get(dest, 0) < 3 else config.GOOGLE_SAMPLES_PER_DEST
+        k = args.samples or (config.GOOGLE_SAMPLES_THIN if tp_count.get(dest, 0) < 3 else config.GOOGLE_SAMPLES_PER_DEST)
         for pattern, depart, ret in sampler.trips_for(today, dest, k):
             if args.limit and done >= args.limit:
                 break
@@ -48,7 +53,7 @@ def main(argv=None) -> int:
             if q:
                 ok += 1
                 rows.append({
-                    "observed": today.isoformat(), "source": "google", "origin": config.ORIGIN, "dest": dest,
+                    "observed": today.isoformat(), "source": source, "origin": config.ORIGIN, "dest": dest,
                     "pattern": pattern, "depart": depart.isoformat(), "return": ret.isoformat(),
                     "nights": (ret - depart).days, "lead_days": (depart - today).days,
                     "price_usd": q.price_usd, "airlines": q.airlines, "stops": q.stops,
@@ -59,7 +64,7 @@ def main(argv=None) -> int:
 
     rows = tp_rows + rows
     if rows:
-        path = store.append(rows, today.strftime("%Y-%m"))
+        path = store.append(rows, today.strftime("%Y-%m") + (f"-{args.tag}" if args.tag else ""))
         print(f"wrote {len(rows)} rows to {path}")
     print(f"summary: {done} requests, {ok} priced, {empty} no results, {failed} failed")
     # Google flakes on many requests, so only go red when nothing at all was priced.
