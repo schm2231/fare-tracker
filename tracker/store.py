@@ -4,7 +4,7 @@ import pathlib
 
 DATA = pathlib.Path(__file__).resolve().parent.parent / "data" / "fares"
 FIELDS = [
-    "observed", "origin", "dest", "pattern", "depart", "return",
+    "observed", "source", "origin", "dest", "pattern", "depart", "return",
     "nights", "lead_days", "price_usd", "airlines", "stops", "duration_min",
 ]
 

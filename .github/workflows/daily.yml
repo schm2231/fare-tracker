@@ -28,6 +28,8 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Price trips
+        env:
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
         run: python -u -m tracker.run ${{ inputs.limit && format('--limit {0}', inputs.limit) || '' }}
       - name: Commit new data
         if: always()

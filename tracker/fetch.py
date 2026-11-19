@@ -39,7 +39,7 @@ def cheapest(origin: str, dest: str, depart: dt.date, ret: dt.date) -> Quote | N
     )
 
 
-def _get_with_retry(q, tries: int = 4):
+def _get_with_retry(q, tries: int = 2):
     """Google intermittently returns an error payload or a bare page.
     Retry with backoff; a fresh client is created on every call."""
     last = None

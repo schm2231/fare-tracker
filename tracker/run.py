@@ -8,7 +8,7 @@ import random
 import sys
 import time
 
-from . import config, fetch, sampler, store
+from . import config, fetch, sampler, store, travelpayouts
 
 
 def main(argv=None) -> int:
@@ -21,8 +21,11 @@ def main(argv=None) -> int:
     dests = args.dest.split(",") if args.dest else config.DESTINATIONS
     rows, ok, empty, failed, done = [], 0, 0, 0, 0
 
+    tp_rows, tp_failed = travelpayouts.collect(today, dests[:2] if args.limit else dests)
+    print(f"travelpayouts: {len(tp_rows)} trips, {tp_failed} failed calls")
+
     for dest in dests:
-        for pattern, depart, ret in sampler.trips_for(today, dest):
+        for pattern, depart, ret in sampler.trips_for(today, dest, config.GOOGLE_SAMPLES_PER_DEST):
             if args.limit and done >= args.limit:
                 break
             done += 1
@@ -38,7 +41,7 @@ def main(argv=None) -> int:
             if q:
                 ok += 1
                 rows.append({
-                    "observed": today.isoformat(), "origin": config.ORIGIN, "dest": dest,
+                    "observed": today.isoformat(), "source": "google", "origin": config.ORIGIN, "dest": dest,
                     "pattern": pattern, "depart": depart.isoformat(), "return": ret.isoformat(),
                     "nights": (ret - depart).days, "lead_days": (depart - today).days,
                     "price_usd": q.price_usd, "airlines": q.airlines, "stops": q.stops,
@@ -47,12 +50,13 @@ def main(argv=None) -> int:
                 print(f"ok   {dest} {pattern} {depart} ${q.price_usd}")
             time.sleep(random.uniform(*config.DELAY_SECONDS))
 
+    rows = tp_rows + rows
     if rows:
         path = store.append(rows, today.strftime("%Y-%m"))
         print(f"wrote {len(rows)} rows to {path}")
     print(f"summary: {done} requests, {ok} priced, {empty} no results, {failed} failed")
     # Google flakes on many requests, so only go red when nothing at all was priced.
-    return 1 if done and ok == 0 else 0
+    return 1 if not rows else 0
 
 
 if __name__ == "__main__":

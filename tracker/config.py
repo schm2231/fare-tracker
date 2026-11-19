@@ -37,5 +37,6 @@ PATTERNS = [
 ]
 
 WEEKS_AHEAD = 26          # look about 6 months out
-SAMPLES_PER_DEST = 6      # trips checked per destination per day
+SAMPLES_PER_DEST = 6      # default sample size
+GOOGLE_SAMPLES_PER_DEST = 2  # Google is flaky from GitHub, keep this small
 DELAY_SECONDS = (2.0, 4.0)  # polite random pause between requests
