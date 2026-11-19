@@ -1,0 +1,21 @@
+name: DOT baseline (quarterly)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 1 1,4,7,10 *"
+permissions:
+  contents: write
+jobs:
+  dot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -u -m tracker.dot
+      - run: |
+          git config user.name "fare-tracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/dot_baseline.csv
+          git diff --cached --quiet || git commit -m "DOT baseline $(date -u +%F)"
+          git pull --rebase origin main && git push
