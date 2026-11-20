@@ -1,48 +1,93 @@
 watched,city,dest,region,kind,price,typical,pct_vs_typical,depart_day,depart,return,nights,airlines,stops,history_days,dot_avg,pct_vs_dot,dot_low
-False,Denver,DEN,USA,week,76,,,Sat,2027-01-16,2027-01-23,7,F9,0,0,343,-78,261
-False,Atlanta,ATL,USA,week,79,,,Fri,2027-01-08,2027-01-14,6,F9,0,0,673,-88,236
-False,Chicago,ORD,USA,wknd,123,,,Sat,2026-12-19,2026-12-22,3,SY,0,0,389,-68,315
-False,Chicago,ORD,USA,week,138,,,Wed,2026-12-23,2026-12-30,7,Delta,0,0,389,-65,315
-False,Orlando,MCO,USA,week,152,,,Thu,2027-01-21,2027-01-27,6,F9,1,0,460,-67,338
-False,Denver,DEN,USA,wknd,153,,,Thu,2026-12-03,2026-12-05,2,F9,0,0,338,-55,217
-False,Tampa,TPA,USA,wknd,167,,,Sat,2027-01-16,2027-01-20,4,F9,1,0,445,-62,325
-False,Tampa,TPA,USA,week,170,,,Sun,2027-01-03,2027-01-12,9,SY,1,0,445,-62,325
-False,New Orleans,MSY,USA,week,173,,,Wed,2027-01-20,2027-01-26,6,F9,1,0,628,-72,511
-False,Fort Myers,RSW,USA,week,180,,,Sat,2026-12-05,2026-12-11,6,SY,0,0,455,-60,294
-False,Dallas,DFW,USA,wknd,196,,,Thu,2026-12-03,2026-12-06,3,F9,0,0,466,-58,249
-False,Washington DC,DCA,USA,week,199,,,Thu,2027-01-28,2027-02-02,5,F9,1,0,521,-62,353
-False,Salt Lake City,SLC,USA,wknd,224,,,Tue,2027-02-23,2027-02-26,3,F9,1,0,750,-70,242
-False,Phoenix,PHX,USA,wknd,246,,,Fri,2027-02-19,2027-02-22,3,F9,0,0,477,-48,336
-False,New York,LGA,USA,week,249,,,Sun,2027-01-17,2027-01-24,7,Frontier,1,0,593,-58,509
-False,Washington DC,DCA,USA,wknd,252,,,Thu,2027-01-07,2027-01-10,3,Frontier,1,0,521,-52,353
-False,San Francisco,SFO,USA,wknd,255,,,Mon,2027-02-01,2027-02-04,3,F9,2,0,646,-61,571
-False,Miami,MIA,USA,week,255,,,Sun,2026-12-06,2026-12-13,7,SY,2,0,477,-47,300
-False,Miami,MIA,USA,wknd,262,,,Sat,2027-01-16,2027-01-19,3,F9,1,0,498,-47,357
-False,Las Vegas,LAS,USA,week,279,,,Sat,2027-01-02,2027-01-09,7,Delta,0,0,453,-38,305
-False,Seattle,SEA,USA,wknd,280,,,Fri,2026-12-04,2026-12-07,3,Frontier,1,0,473,-41,294
-False,Boston,BOS,USA,week,280,,,Wed,2027-01-27,2027-02-03,7,Frontier,1,0,631,-56,306
-False,Boston,BOS,USA,wknd,290,,,Thu,2026-12-17,2026-12-20,3,Frontier,1,0,551,-47,295
-False,Fort Myers,RSW,USA,wknd,290,,,Thu,2026-11-26,2026-11-30,4,SY,0,0,455,-36,294
-False,Phoenix,PHX,USA,week,293,,,Thu,2027-03-04,2027-03-09,5,F9,0,0,477,-39,336
-False,Orlando,MCO,USA,wknd,318,,,Fri,2026-12-18,2026-12-20,2,American,1,0,406,-22,277
-False,Los Angeles,LAX,USA,week,319,,,Tue,2027-04-13,2027-04-20,7,Delta,0,0,538,-41,301
-False,Dallas,DFW,USA,week,321,,,Sat,2026-11-28,2026-12-07,9,F9,0,0,466,-31,249
-False,New York,LGA,USA,wknd,325,,,Tue,2026-12-01,2026-12-03,2,WN,1,0,564,-42,306
-False,Atlanta,ATL,USA,wknd,332,,,Fri,2026-11-20,2026-11-22,2,F9,1,0,574,-42,191
-False,Houston,IAH,USA,wknd,348,,,Fri,2027-01-01,2027-01-04,3,F9,1,0,537,-35,491
-False,Los Angeles,LAX,USA,wknd,373,,,Sat,2027-01-02,2027-01-04,2,Frontier,1,0,634,-41,357
-False,Las Vegas,LAS,USA,wknd,380,,,Thu,2026-12-31,2027-01-03,3,F9,1,0,411,-8,272
-False,Austin,AUS,USA,wknd,397,,,Fri,2027-03-12,2027-03-15,3,Southwest,1,0,549,-28,456
-False,Nashville,BNA,USA,wknd,440,,,Fri,2027-05-14,2027-05-16,2,Southwest,0,0,399,10,236
-False,Toronto,YYZ,Canada,wknd,454,,,Tue,2026-11-24,2026-11-27,3,UA,1,0,,,
-False,Toronto,YYZ,Canada,week,476,,,Fri,2026-11-27,2026-12-03,6,SY,1,0,,,
-False,Fort Lauderdale,FLL,USA,wknd,479,,,Sat,2026-12-05,2026-12-07,2,Delta,1,0,477,0,300
-False,Calgary,YYC,Canada,week,481,,,Tue,2027-02-16,2027-02-23,7,American,1,0,,,
-False,Winnipeg,YWG,Canada,week,632,,,Sun,2027-03-14,2027-03-21,7,WestJet,2,0,,,
-False,Lisbon,LIS,Europe,wknd,809,,,Fri,2027-02-19,2027-02-22,3,American/Iberia,2,0,,,
-False,Frankfurt,FRA,Europe,week,823,,,Wed,2026-11-25,2026-11-30,5,SK,2,0,,,
-False,Rome,FCO,Europe,week,1004,,,Tue,2027-04-27,2027-05-04,7,United/Turkish Airlines,2,0,,,
-False,Munich,MUC,Europe,wknd,1014,,,Fri,2027-03-05,2027-03-07,2,American,1,0,,,
-False,Stockholm,ARN,Europe,week,1103,,,Tue,2026-12-15,2026-12-22,7,Delta/Scandinavian Airlines,1,0,,,
-False,Santiago,SCL,South America,wknd,1201,,,Sat,2027-01-16,2027-01-18,2,Air Canada,1,0,,,
-False,Frankfurt,FRA,Europe,wknd,1242,,,Sat,2027-03-06,2027-03-08,2,United/Turkish Airlines,2,0,,,
+False,Denver,DEN,USA,week,76,76,0,Sat,2027-01-16,2027-01-23,7,F9,0,1,343,-78,261
+False,Atlanta,ATL,USA,week,79,79,0,Fri,2027-01-08,2027-01-14,6,F9,0,1,673,-88,236
+False,Chicago,ORD,USA,wknd,123,123,0,Sat,2026-12-19,2026-12-22,3,SY,0,1,389,-68,315
+False,Orlando,MCO,USA,week,152,152,0,Thu,2027-01-21,2027-01-27,6,F9,1,1,460,-67,338
+False,Denver,DEN,USA,wknd,153,153,0,Thu,2026-12-03,2026-12-05,2,F9,0,1,338,-55,217
+False,Tampa,TPA,USA,wknd,167,167,0,Sat,2027-01-16,2027-01-20,4,F9,1,1,445,-62,325
+False,Tampa,TPA,USA,week,170,170,0,Sun,2027-01-03,2027-01-12,9,SY,1,1,445,-62,325
+False,New Orleans,MSY,USA,week,173,173,0,Wed,2027-01-20,2027-01-26,6,F9,1,1,628,-72,511
+False,Chicago,ORD,USA,week,179,138,30,Sat,2027-01-30,2027-02-06,7,Frontier,1,1,427,-58,357
+False,Fort Myers,RSW,USA,week,180,180,0,Sat,2026-12-05,2026-12-11,6,SY,0,1,455,-60,294
+False,San Diego,SAN,USA,week,185,,,Sat,2027-01-30,2027-02-06,7,Frontier,1,0,568,-67,341
+False,Dallas,DFW,USA,wknd,196,196,0,Thu,2026-12-03,2026-12-06,3,F9,0,1,466,-58,249
+False,Salt Lake City,SLC,USA,wknd,224,224,0,Tue,2027-02-23,2027-02-26,3,F9,1,1,750,-70,242
+False,Washington DC,DCA,USA,week,225,199,13,Thu,2027-01-21,2027-01-30,9,F9,1,1,521,-57,353
+False,Los Angeles,LAX,USA,wknd,240,373,-36,Fri,2027-01-29,2027-02-01,3,Frontier,1,1,634,-62,357
+False,San Francisco,SFO,USA,week,240,,,Sat,2026-12-05,2026-12-12,7,Frontier,1,0,557,-57,326
+False,Phoenix,PHX,USA,wknd,246,246,0,Fri,2027-02-19,2027-02-22,3,F9,0,1,477,-48,336
+False,Miami,MIA,USA,wknd,248,262,-5,Sat,2027-01-16,2027-01-19,3,F9,2,1,498,-50,357
+False,Houston,IAH,USA,wknd,250,348,-28,Sat,2027-02-06,2027-02-08,2,Frontier,1,1,537,-53,491
+False,San Francisco,SFO,USA,wknd,255,255,0,Mon,2027-02-01,2027-02-04,3,F9,2,1,646,-61,571
+False,Miami,MIA,USA,week,255,255,0,Sun,2026-12-06,2026-12-13,7,SY,2,1,477,-47,300
+False,Austin,AUS,USA,wknd,268,397,-32,Thu,2027-02-04,2027-02-07,3,Frontier,1,1,549,-51,456
+False,Las Vegas,LAS,USA,week,288,279,3,Thu,2026-12-03,2026-12-10,7,F9,1,1,411,-30,272
+False,Seattle,SEA,USA,week,288,,,Tue,2026-11-24,2026-12-03,9,SY,0,0,473,-39,294
+False,Fort Myers,RSW,USA,wknd,290,290,0,Thu,2026-11-26,2026-11-30,4,SY,0,1,455,-36,294
+False,Phoenix,PHX,USA,week,293,293,0,Thu,2027-03-04,2027-03-09,5,F9,0,1,477,-39,336
+False,Nashville,BNA,USA,week,298,,,Sun,2027-01-24,2027-01-31,7,Frontier,1,0,451,-34,240
+False,New York,LGA,USA,wknd,303,325,-7,Fri,2027-01-22,2027-01-25,3,American,2,1,593,-49,509
+False,Fort Lauderdale,FLL,USA,week,309,,,Tue,2027-04-13,2027-04-20,7,Delta,1,0,457,-32,314
+False,Washington DC,DCA,USA,wknd,312,252,24,Sat,2027-02-13,2027-02-15,2,American,0,1,521,-40,353
+False,Fort Lauderdale,FLL,USA,wknd,312,479,-35,Thu,2027-02-18,2027-02-21,3,Frontier,1,1,498,-37,357
+False,Los Angeles,LAX,USA,week,319,319,0,Sun,2026-12-20,2026-12-27,7,Delta,0,1,568,-44,325
+False,Dallas,DFW,USA,week,321,321,0,Sat,2026-11-28,2026-12-07,9,F9,0,1,466,-31,249
+False,Boston,BOS,USA,wknd,329,290,13,Fri,2027-01-01,2027-01-04,3,SY,1,1,631,-48,306
+False,Seattle,SEA,USA,wknd,347,280,24,Fri,2027-02-05,2027-02-07,2,Frontier,1,1,521,-33,472
+False,Las Vegas,LAS,USA,wknd,350,380,-8,Fri,2026-12-11,2026-12-13,2,Frontier,1,1,411,-15,272
+False,New York,LGA,USA,week,362,249,45,Wed,2026-12-23,2026-12-28,5,F9,1,1,564,-36,306
+False,Calgary,YYC,Canada,wknd,366,554,-34,Sat,2027-01-09,2027-01-11,2,WestJet,1,1,,,
+False,Houston,IAH,USA,week,369,,,Wed,2027-02-10,2027-02-17,7,United,1,0,537,-31,491
+False,Salt Lake City,SLC,USA,week,373,,,Sat,2027-01-09,2027-01-16,7,United,1,0,750,-50,242
+False,Orlando,MCO,USA,wknd,379,318,19,Fri,2027-04-30,2027-05-02,2,Delta,0,1,383,-1,277
+False,Nashville,BNA,USA,wknd,387,440,-12,Thu,2027-03-18,2027-03-21,3,Southwest,0,1,451,-14,240
+False,Atlanta,ATL,USA,wknd,414,332,25,Thu,2027-05-06,2027-05-09,3,Frontier,1,1,543,-24,196
+False,Honolulu,HNL,USA,week,419,,,Tue,2027-02-23,2027-03-02,7,United,1,0,,,
+False,Portland,PDX,USA,wknd,458,,,Thu,2027-04-29,2027-05-02,3,Frontier,1,0,507,-10,313
+False,Montreal,YUL,Canada,week,466,465,0,Tue,2027-01-05,2027-01-12,7,American,1,1,,,
+False,Toronto,YYZ,Canada,week,476,476,0,Fri,2026-11-27,2026-12-03,6,SY,1,1,,,
+False,New Orleans,MSY,USA,wknd,524,,,Fri,2027-03-19,2027-03-21,2,Southwest,1,0,628,-17,511
+False,San Diego,SAN,USA,wknd,530,,,Sat,2026-11-21,2026-11-23,2,Frontier,1,0,531,0,318
+False,Portland,PDX,USA,week,535,,,Sat,2027-03-27,2027-04-03,7,Frontier,1,0,595,-10,312
+False,Calgary,YYC,Canada,week,573,481,19,Sun,2027-01-31,2027-02-07,7,Alaska,1,1,,,
+False,Winnipeg,YWG,Canada,wknd,579,770,-25,Sat,2027-04-03,2027-04-05,2,WestJet,1,1,,,
+False,Toronto,YYZ,Canada,wknd,635,454,40,Fri,2027-03-05,2027-03-08,3,United,1,1,,,
+False,Winnipeg,YWG,Canada,week,657,632,4,Wed,2027-03-10,2027-03-17,7,WestJet,1,1,,,
+False,Reykjavik,KEF,Europe,wknd,666,662,1,Fri,2027-05-21,2027-05-24,3,Delta,1,1,,,
+False,Vancouver,YVR,Canada,wknd,669,595,12,Thu,2027-03-11,2027-03-14,3,WestJet,1,1,,,
+False,Vancouver,YVR,Canada,week,678,705,-4,Sun,2027-01-03,2027-01-10,7,WestJet,1,1,,,
+False,Bogota,BOG,South America,wknd,757,891,-15,Sat,2027-01-30,2027-02-01,2,American,2,1,,,
+False,Montreal,YUL,Canada,wknd,776,516,50,Fri,2027-05-21,2027-05-23,2,Air Canada,1,1,,,
+False,Bogota,BOG,South America,week,776,635,22,Wed,2027-02-10,2027-02-17,7,Delta/LATAM,1,1,,,
+False,Barcelona,BCN,Europe,week,778,1036,-25,Tue,2027-03-09,2027-03-16,7,United,1,1,,,
+False,Honolulu,HNL,USA,wknd,785,,,Fri,2026-12-04,2026-12-06,2,Southwest,2,0,,,
+False,Zurich,ZRH,Europe,week,821,736,12,Tue,2026-12-01,2026-12-08,7,United/SWISS,2,1,,,
+False,Frankfurt,FRA,Europe,week,823,823,0,Wed,2026-11-25,2026-11-30,5,SK,2,1,,,
+False,Lisbon,LIS,Europe,wknd,834,801,4,Thu,2027-03-04,2027-03-07,3,United,1,1,,,
+False,Stockholm,ARN,Europe,wknd,834,816,2,Sat,2027-05-08,2027-05-10,2,American/British Airways,2,1,,,
+False,Zurich,ZRH,Europe,wknd,849,,,Fri,2027-01-29,2027-02-01,3,United/SWISS,2,0,,,
+False,Munich,MUC,Europe,week,855,903,-5,Tue,2027-01-05,2027-01-12,7,United/Lufthansa,2,1,,,
+False,Athens,ATH,Europe,week,855,992,-14,Wed,2027-02-17,2027-02-24,7,United/SWISS,2,1,,,
+False,Barcelona,BCN,Europe,wknd,869,891,-2,Thu,2027-01-14,2027-01-17,3,American/British Airways,2,1,,,
+False,Athens,ATH,Europe,wknd,878,1059,-17,Fri,2027-02-19,2027-02-21,2,United/Lufthansa,2,1,,,
+False,Dublin,DUB,Europe,week,924,930,-1,Wed,2027-03-10,2027-03-17,7,Delta,1,1,,,
+False,Munich,MUC,Europe,wknd,931,876,6,Fri,2027-01-08,2027-01-11,3,United/Lufthansa,1,1,,,
+False,Rome,FCO,Europe,wknd,943,1060,-11,Fri,2027-01-29,2027-02-01,3,United/Turkish Airlines,2,1,,,
+False,Rome,FCO,Europe,week,948,906,5,Sun,2027-02-07,2027-02-14,7,Delta,1,1,,,
+False,Santiago,SCL,South America,wknd,993,1201,-17,Sat,2027-02-20,2027-02-22,2,Air Canada,1,1,,,
+False,Santiago,SCL,South America,week,1018,1263,-19,Tue,2027-01-26,2027-02-02,7,Air Canada,1,1,,,
+False,Madrid,MAD,Europe,wknd,1029,826,25,Fri,2027-05-21,2027-05-24,3,Air Canada,1,1,,,
+False,Paris,CDG,Europe,week,1041,1000,4,Sat,2027-02-06,2027-02-13,7,United/Turkish Airlines,2,1,,,
+False,Frankfurt,FRA,Europe,wknd,1058,990,7,Fri,2027-02-05,2027-02-08,3,Delta/Air France,1,1,,,
+False,Lima,LIM,South America,week,1116,840,33,Wed,2027-03-31,2027-04-07,7,American,2,1,,,
+False,Buenos Aires,EZE,South America,week,1119,1330,-16,Wed,2027-05-05,2027-05-12,7,Air Canada,2,1,,,
+False,Amsterdam,AMS,Europe,week,1172,1080,9,Sat,2027-01-30,2027-02-06,7,Delta,1,1,,,
+False,Paris,CDG,Europe,wknd,1200,1052,14,Fri,2027-02-05,2027-02-07,2,United,1,1,,,
+False,Copenhagen,CPH,Europe,wknd,1204,964,25,Fri,2027-04-16,2027-04-19,3,Delta/Scandinavian Airlines,1,1,,,
+False,London,LHR,Europe,wknd,1279,1080,18,Sat,2027-01-09,2027-01-11,2,United,1,1,,,
+False,Amsterdam,AMS,Europe,wknd,1290,1145,13,Sat,2027-04-10,2027-04-12,2,Alaska/Condor/Lufthansa,2,1,,,
+False,Buenos Aires,EZE,South America,wknd,1385,1054,31,Thu,2027-03-25,2027-03-28,3,American,2,1,,,
+False,Sao Paulo,GRU,South America,week,1494,1071,39,Tue,2027-03-30,2027-04-06,7,Delta/LATAM,1,1,,,
+False,Lima,LIM,South America,wknd,1646,887,86,Fri,2026-12-11,2026-12-14,3,American,2,1,,,
+False,London,LHR,Europe,week,1870,939,99,Sun,2026-12-20,2026-12-27,7,Delta,1,1,,,
+False,Madrid,MAD,Europe,week,1999,722,177,Sun,2026-12-27,2027-01-03,7,Delta/Air Europa,1,1,,,
