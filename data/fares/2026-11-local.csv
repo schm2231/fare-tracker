@@ -1,0 +1,143 @@
+observed,source,origin,dest,pattern,depart,return,nights,lead_days,price_usd,airlines,stops,duration_min
+2026-11-19,google-local,MSP,YYZ,wknd-fri-sun,2026-12-04,2026-12-06,2,15,577,Delta,1,196
+2026-11-19,google-local,MSP,YYZ,week-tue-tue,2026-12-08,2026-12-15,7,19,544,American,1,223
+2026-11-19,google-local,MSP,YYZ,wknd-sat-mon,2026-12-19,2026-12-21,2,30,558,American,1,281
+2026-11-19,google-local,MSP,YYZ,wknd-sat-mon,2027-02-20,2027-02-22,2,93,471,American,1,214
+2026-11-19,google-local,MSP,YYZ,wknd-fri-sun,2027-04-02,2027-04-04,2,134,487,Delta,0,134
+2026-11-19,google-local,MSP,YYZ,wknd-thu-sun,2027-05-20,2027-05-23,3,182,563,American,1,227
+2026-11-19,google-local,MSP,YVR,wknd-sat-mon,2026-12-05,2026-12-07,2,16,712,Air Canada,2,512
+2026-11-19,google-local,MSP,YVR,week-sun-sun,2026-12-20,2026-12-27,7,31,705,WestJet,1,300
+2026-11-19,google-local,MSP,YVR,week-sat-sat,2027-01-02,2027-01-09,7,44,899,United,1,357
+2026-11-19,google-local,MSP,YVR,wknd-thu-sun,2027-01-21,2027-01-24,3,63,626,WestJet,2,340
+2026-11-19,google-local,MSP,YVR,wknd-fri-mon,2027-02-05,2027-02-08,3,78,595,WestJet,2,345
+2026-11-19,google-local,MSP,YVR,wknd-thu-sun,2027-04-08,2027-04-11,3,140,716,Alaska,1,293
+2026-11-19,google-local,MSP,YUL,week-sat-sat,2026-12-26,2027-01-02,7,37,1038,Air Canada,1,221
+2026-11-19,google-local,MSP,YUL,week-tue-tue,2027-01-26,2027-02-02,7,68,465,American,1,266
+2026-11-19,google-local,MSP,YUL,wknd-fri-mon,2027-01-29,2027-02-01,3,71,516,American,1,266
+2026-11-19,google-local,MSP,YUL,wknd-thu-sun,2027-03-04,2027-03-07,3,105,801,Air Canada,2,248
+2026-11-19,google-local,MSP,YUL,week-sat-sat,2027-04-03,2027-04-10,7,135,697,United,1,259
+2026-11-19,google-local,MSP,YUL,week-sun-sun,2027-04-18,2027-04-25,7,150,697,United,1,259
+2026-11-19,google-local,MSP,YWG,week-sat-sat,2026-12-26,2027-01-02,7,37,687,WestJet,1,250
+2026-11-19,google-local,MSP,YWG,wknd-fri-sun,2027-01-01,2027-01-03,2,43,770,WestJet,2,405
+2026-11-19,google-local,MSP,YWG,wknd-fri-mon,2027-01-01,2027-01-04,3,43,770,WestJet,2,405
+2026-11-19,google-local,MSP,YWG,week-sun-sun,2027-03-14,2027-03-21,7,115,633,WestJet,2,405
+2026-11-19,google-local,MSP,YWG,week-wed-wed,2027-03-24,2027-03-31,7,125,633,WestJet,2,405
+2026-11-19,google-local,MSP,YWG,week-wed-wed,2027-05-05,2027-05-12,7,167,641,WestJet,2,375
+2026-11-19,google-local,MSP,YYC,wknd-fri-mon,2027-01-01,2027-01-04,3,43,610,WestJet,1,275
+2026-11-19,google-local,MSP,YYC,week-sat-sat,2027-02-06,2027-02-13,7,79,577,Alaska,1,351
+2026-11-19,google-local,MSP,YYC,week-tue-tue,2027-02-16,2027-02-23,7,89,481,American,1,342
+2026-11-19,google-local,MSP,YYC,week-tue-tue,2027-03-30,2027-04-06,7,131,522,WestJet,1,235
+2026-11-19,google-local,MSP,YYC,wknd-thu-sun,2027-04-29,2027-05-02,3,161,554,Delta,1,318
+2026-11-19,google-local,MSP,YYC,week-sat-sat,2027-05-08,2027-05-15,7,170,580,Alaska,1,326
+2026-11-19,google-local,MSP,LHR,week-sat-sat,2027-01-09,2027-01-16,7,51,1033,Southwest/Icelandair,2,775
+2026-11-19,google-local,MSP,LHR,week-wed-wed,2027-01-27,2027-02-03,7,69,973,Southwest/Icelandair,2,775
+2026-11-19,google-local,MSP,LHR,week-wed-wed,2027-02-24,2027-03-03,7,97,939,Southwest/Icelandair,2,775
+2026-11-19,google-local,MSP,LHR,week-sat-sat,2027-04-10,2027-04-17,7,142,1158,Southwest/Icelandair,2,700
+2026-11-19,google-local,MSP,LHR,wknd-fri-sun,2027-05-07,2027-05-09,2,169,1080,Southwest/Icelandair,2,690
+2026-11-19,google-local,MSP,LHR,week-sun-sun,2027-05-16,2027-05-23,7,178,1328,Southwest/Icelandair,2,715
+2026-11-19,google-local,MSP,CDG,wknd-fri-sun,2026-12-04,2026-12-06,2,15,1052,Icelandair,1,580
+2026-11-19,google-local,MSP,CDG,wknd-sat-mon,2026-12-19,2026-12-21,2,30,1637,Delta/Air France,1,575
+2026-11-19,google-local,MSP,CDG,wknd-fri-sun,2027-01-01,2027-01-03,2,43,1668,United,1,610
+2026-11-19,google-local,MSP,CDG,wknd-fri-sun,2027-03-12,2027-03-14,2,113,1223,Icelandair,1,580
+2026-11-19,google-local,MSP,CDG,wknd-fri-sun,2027-03-19,2027-03-21,2,120,1492,United,1,595
+2026-11-19,google-local,MSP,CDG,week-wed-wed,2027-03-31,2027-04-07,7,132,1000,Alaska/Condor,2,931
+2026-11-19,google-local,MSP,AMS,week-wed-wed,2027-01-13,2027-01-20,7,55,1080,Delta,0,500
+2026-11-19,google-local,MSP,AMS,wknd-fri-sun,2027-01-22,2027-01-24,2,64,1248,Southwest/Icelandair,2,775
+2026-11-19,google-local,MSP,AMS,wknd-sat-mon,2027-02-13,2027-02-15,2,86,1217,United,2,699
+2026-11-19,google-local,MSP,AMS,wknd-thu-sun,2027-03-04,2027-03-07,3,105,1240,Alaska/Condor/Lufthansa,2,935
+2026-11-19,google-local,MSP,AMS,wknd-fri-sun,2027-04-09,2027-04-11,2,141,1145,Southwest/Icelandair,2,730
+2026-11-19,google-local,MSP,AMS,wknd-sat-mon,2027-05-01,2027-05-03,2,163,1230,Alaska/Condor/Lufthansa,2,921
+2026-11-19,google-local,MSP,FRA,wknd-sat-mon,2026-11-28,2026-11-30,2,9,2086,United/Turkish Airlines,2,930
+2026-11-19,google-local,MSP,FRA,wknd-sat-mon,2026-12-12,2026-12-14,2,23,1489,United/Turkish Airlines,2,930
+2026-11-19,google-local,MSP,FRA,week-wed-wed,2027-01-06,2027-01-13,7,48,918,United/Lufthansa,1,594
+2026-11-19,google-local,MSP,FRA,wknd-sat-mon,2027-03-06,2027-03-08,2,107,1666,Southwest/Icelandair,2,810
+2026-11-19,google-local,MSP,FRA,week-tue-tue,2027-03-16,2027-03-23,7,117,1206,Southwest/Icelandair,2,795
+2026-11-19,google-local,MSP,FRA,wknd-fri-mon,2027-05-07,2027-05-10,3,169,990,Alaska/Condor,1,851
+2026-11-19,google-local,MSP,KEF,wknd-fri-mon,2027-05-14,2027-05-17,3,176,662,Delta,0,362
+2026-11-19,google-local,MSP,DUB,week-tue-tue,2026-11-24,2026-12-01,7,5,1634,Southwest/Icelandair,2,685
+2026-11-19,google-local,MSP,DUB,week-sat-sat,2026-12-26,2027-01-02,7,37,1547,United,1,571
+2026-11-19,google-local,MSP,DUB,wknd-thu-sun,2026-12-31,2027-01-03,3,42,1484,United,2,635
+2026-11-19,google-local,MSP,DUB,wknd-thu-sun,2027-03-11,2027-03-14,3,112,1200,United/Turkish Airlines,2,1006
+2026-11-19,google-local,MSP,DUB,week-sun-sun,2027-05-02,2027-05-09,7,164,1220,United,1,574
+2026-11-19,google-local,MSP,DUB,week-tue-tue,2027-05-04,2027-05-11,7,166,930,United,1,574
+2026-11-19,google-local,MSP,FCO,week-wed-wed,2026-12-23,2026-12-30,7,34,1423,United,2,737
+2026-11-19,google-local,MSP,FCO,week-tue-tue,2027-01-12,2027-01-19,7,54,906,Delta/KLM,2,774
+2026-11-19,google-local,MSP,FCO,week-sat-sat,2027-02-20,2027-02-27,7,93,943,United/Turkish Airlines,2,892
+2026-11-19,google-local,MSP,FCO,wknd-sat-mon,2027-04-24,2027-04-26,2,156,1230,Alaska/Condor/Lufthansa,2,961
+2026-11-19,google-local,MSP,FCO,week-tue-tue,2027-04-27,2027-05-04,7,159,1004,United/Turkish Airlines,2,880
+2026-11-19,google-local,MSP,FCO,wknd-thu-sun,2027-04-29,2027-05-02,3,161,1060,Alaska/Condor,2,961
+2026-11-19,google-local,MSP,BCN,wknd-sat-mon,2026-11-21,2026-11-23,2,2,1459,Air Canada,2,656
+2026-11-19,google-local,MSP,BCN,week-wed-wed,2026-12-30,2027-01-06,7,41,1036,American/British Airways,2,736
+2026-11-19,google-local,MSP,BCN,wknd-sat-mon,2027-01-02,2027-01-04,2,44,1508,United,2,724
+2026-11-19,google-local,MSP,BCN,week-sun-sun,2027-03-14,2027-03-21,7,115,1492,Delta/Air France,1,615
+2026-11-19,google-local,MSP,BCN,wknd-sat-mon,2027-03-27,2027-03-29,2,128,1051,United/Austrian,2,744
+2026-11-19,google-local,MSP,BCN,wknd-fri-sun,2027-04-09,2027-04-11,2,141,891,American/British Airways,2,716
+2026-11-19,google-local,MSP,MAD,week-sat-sat,2026-11-21,2026-11-28,7,2,1310,Delta,1,630
+2026-11-19,google-local,MSP,MAD,week-sun-sun,2026-11-22,2026-11-29,7,3,1578,Delta/Air France,1,640
+2026-11-19,google-local,MSP,MAD,wknd-sat-mon,2027-01-30,2027-02-01,2,72,1216,Delta,1,600
+2026-11-19,google-local,MSP,MAD,week-wed-wed,2027-02-17,2027-02-24,7,90,722,United,2,689
+2026-11-19,google-local,MSP,MAD,wknd-thu-sun,2027-02-25,2027-02-28,3,98,826,American/Iberia,1,719
+2026-11-19,google-local,MSP,MAD,wknd-fri-sun,2027-04-23,2027-04-25,2,155,826,American/Iberia,1,613
+2026-11-19,google-local,MSP,LIS,wknd-fri-sun,2026-11-20,2026-11-22,2,1,1350,United,2,638
+2026-11-19,google-local,MSP,LIS,week-sat-sat,2027-01-02,2027-01-09,7,44,1056,Delta,1,565
+2026-11-19,google-local,MSP,LIS,week-sat-sat,2027-01-30,2027-02-06,7,72,859,American,2,681
+2026-11-19,google-local,MSP,LIS,wknd-fri-sun,2027-02-12,2027-02-14,2,85,966,American,1,563
+2026-11-19,google-local,MSP,LIS,wknd-sat-mon,2027-02-13,2027-02-15,2,86,1268,American/British Airways,2,747
+2026-11-19,google-local,MSP,LIS,wknd-fri-mon,2027-02-19,2027-02-22,3,92,801,American,1,554
+2026-11-19,google-local,MSP,MUC,wknd-sat-mon,2027-01-23,2027-01-25,2,65,1328,Delta,1,679
+2026-11-19,google-local,MSP,MUC,wknd-fri-mon,2027-01-29,2027-02-01,3,71,954,United/Lufthansa City Airlines,2,706
+2026-11-19,google-local,MSP,MUC,week-sun-sun,2027-02-14,2027-02-21,7,87,903,Delta,1,679
+2026-11-19,google-local,MSP,MUC,wknd-thu-sun,2027-02-18,2027-02-21,3,91,876,United/Lufthansa City Airlines,2,697
+2026-11-19,google-local,MSP,MUC,wknd-fri-sun,2027-03-05,2027-03-07,2,106,988,United,1,725
+2026-11-19,google-local,MSP,MUC,week-wed-wed,2027-03-17,2027-03-24,7,118,989,KLM,1,560
+2026-11-19,google-local,MSP,ZRH,week-sun-sun,2027-01-17,2027-01-24,7,59,830,United/SWISS,1,642
+2026-11-19,google-local,MSP,ZRH,week-tue-tue,2027-02-16,2027-02-23,7,89,778,United/SWISS,2,704
+2026-11-19,google-local,MSP,ZRH,week-tue-tue,2027-03-09,2027-03-16,7,110,914,United,1,643
+2026-11-19,google-local,MSP,ZRH,week-sat-sat,2027-04-10,2027-04-17,7,142,841,Air Canada,1,586
+2026-11-19,google-local,MSP,ZRH,week-wed-wed,2027-04-21,2027-04-28,7,153,736,United/SWISS,1,625
+2026-11-19,google-local,MSP,ZRH,week-tue-tue,2027-05-11,2027-05-18,7,173,821,United/SWISS,1,628
+2026-11-19,google-local,MSP,ATH,week-sat-sat,2026-12-19,2026-12-26,7,30,1633,Icelandair/ITA,2,770
+2026-11-19,google-local,MSP,ATH,week-sun-sun,2027-04-25,2027-05-02,7,157,992,United,1,742
+2026-11-19,google-local,MSP,ATH,wknd-fri-sun,2027-05-07,2027-05-09,2,169,1059,American,1,730
+2026-11-19,google-local,MSP,ATH,week-tue-tue,2027-05-11,2027-05-18,7,173,996,United/Lufthansa,2,760
+2026-11-19,google-local,MSP,ATH,wknd-thu-sun,2027-05-13,2027-05-16,3,175,1384,United,1,723
+2026-11-19,google-local,MSP,ATH,week-sun-sun,2027-05-16,2027-05-23,7,178,995,KLM,1,665
+2026-11-19,google-local,MSP,CPH,wknd-fri-sun,2027-02-12,2027-02-14,2,85,964,Delta/Air France/Scandinavian Airlines,2,704
+2026-11-19,google-local,MSP,CPH,wknd-fri-sun,2027-02-26,2027-02-28,2,99,1203,Delta/Scandinavian Airlines,1,585
+2026-11-19,google-local,MSP,CPH,week-tue-tue,2027-04-06,2027-04-13,7,138,928,Delta,1,650
+2026-11-19,google-local,MSP,CPH,week-wed-wed,2027-04-21,2027-04-28,7,153,928,Delta,1,650
+2026-11-19,google-local,MSP,CPH,week-sun-sun,2027-05-16,2027-05-23,7,178,1047,KLM,1,555
+2026-11-19,google-local,MSP,ARN,week-tue-tue,2026-12-15,2026-12-22,7,26,1103,Delta/Scandinavian Airlines,1,630
+2026-11-19,google-local,MSP,ARN,wknd-fri-mon,2026-12-25,2026-12-28,3,36,1416,United/Lufthansa,2,740
+2026-11-19,google-local,MSP,ARN,wknd-sat-mon,2027-01-30,2027-02-01,2,72,816,Delta/Air France/Scandinavian Airlines,2,725
+2026-11-19,google-local,MSP,ARN,week-sat-sat,2027-03-20,2027-03-27,7,121,924,American/Finnair,2,829
+2026-11-19,google-local,MSP,BOG,wknd-sat-mon,2026-11-21,2026-11-23,2,2,1017,American,1,462
+2026-11-19,google-local,MSP,BOG,week-sun-sun,2026-11-22,2026-11-29,7,3,1200,American,2,511
+2026-11-19,google-local,MSP,BOG,week-sun-sun,2027-01-10,2027-01-17,7,52,1163,American,2,521
+2026-11-19,google-local,MSP,BOG,wknd-fri-mon,2027-01-15,2027-01-18,3,57,891,United/COPA,2,538
+2026-11-19,google-local,MSP,BOG,week-sat-sat,2027-01-16,2027-01-23,7,58,779,Air Canada,2,591
+2026-11-19,google-local,MSP,BOG,week-wed-wed,2027-02-24,2027-03-03,7,97,635,Air Canada,1,481
+2026-11-19,google-local,MSP,LIM,week-sun-sun,2027-01-17,2027-01-24,7,59,840,Air Canada/Avianca,2,666
+2026-11-19,google-local,MSP,LIM,week-tue-tue,2027-01-26,2027-02-02,7,68,1098,Delta/LATAM,1,584
+2026-11-19,google-local,MSP,LIM,week-wed-wed,2027-03-24,2027-03-31,7,125,1098,Delta/LATAM,1,665
+2026-11-19,google-local,MSP,LIM,week-sun-sun,2027-04-04,2027-04-11,7,136,1013,Air Canada/Avianca,2,671
+2026-11-19,google-local,MSP,LIM,wknd-sat-mon,2027-04-10,2027-04-12,2,142,887,Air Canada/Avianca,3,772
+2026-11-19,google-local,MSP,LIM,week-wed-wed,2027-05-19,2027-05-26,7,181,1098,Delta/LATAM,1,655
+2026-11-19,google-local,MSP,GRU,week-sun-sun,2026-12-06,2026-12-13,7,17,1703,American,1,757
+2026-11-19,google-local,MSP,GRU,wknd-fri-sun,2027-01-29,2027-01-31,2,71,1578,United/COPA,2,850
+2026-11-19,google-local,MSP,GRU,wknd-fri-mon,2027-02-12,2027-02-15,3,85,1431,Air Canada/Avianca,2,861
+2026-11-19,google-local,MSP,GRU,week-wed-wed,2027-02-24,2027-03-03,7,97,1071,Air Canada/Avianca,2,861
+2026-11-19,google-local,MSP,GRU,wknd-thu-sun,2027-03-04,2027-03-07,3,105,1271,Air Canada/Gol,2,810
+2026-11-19,google-local,MSP,GRU,week-sun-sun,2027-05-16,2027-05-23,7,178,1540,Delta/LATAM,1,724
+2026-11-19,google-local,MSP,EZE,week-sun-sun,2026-12-13,2026-12-20,7,24,1480,American,1,787
+2026-11-19,google-local,MSP,EZE,wknd-thu-sun,2027-01-07,2027-01-10,3,49,1716,American,1,792
+2026-11-19,google-local,MSP,EZE,week-tue-tue,2027-04-06,2027-04-13,7,138,1330,American,2,884
+2026-11-19,google-local,MSP,EZE,wknd-sat-mon,2027-04-17,2027-04-19,2,149,1054,Air Canada,2,901
+2026-11-19,google-local,MSP,EZE,week-sun-sun,2027-04-25,2027-05-02,7,157,1330,American,1,767
+2026-11-19,google-local,MSP,EZE,week-sun-sun,2027-05-16,2027-05-23,7,178,1330,American,1,767
+2026-11-19,google-local,MSP,SCL,week-sat-sat,2026-11-28,2026-12-05,7,9,1263,Air Canada,1,771
+2026-11-19,google-local,MSP,SCL,wknd-fri-sun,2026-12-04,2026-12-06,2,15,1404,American,1,747
+2026-11-19,google-local,MSP,SCL,wknd-sat-mon,2027-01-16,2027-01-18,2,58,1201,Air Canada,1,756
+2026-11-19,google-local,MSP,SCL,wknd-thu-sun,2027-01-28,2027-01-31,3,70,1358,Air Canada,1,756
+2026-11-19,google-local,MSP,SCL,wknd-thu-sun,2027-02-18,2027-02-21,3,91,1741,Delta/LATAM,2,767
+2026-11-19,google-local,MSP,SCL,wknd-fri-sun,2027-05-07,2027-05-09,2,169,1408,American,2,849
