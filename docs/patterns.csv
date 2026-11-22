@@ -1,28 +1,28 @@
 pattern,label,pct_vs_typical,fares
-depart_day,Mon,-9,15
-depart_day,Tue,1,75
-depart_day,Wed,4,97
-depart_day,Thu,1,118
-depart_day,Fri,4,166
-depart_day,Sat,10,190
-depart_day,Sun,10,74
-return_day,Mon,7,167
-return_day,Tue,1,90
-return_day,Wed,-2,90
-return_day,Thu,-6,30
-return_day,Fri,-8,12
-return_day,Sat,7,85
-return_day,Sun,10,261
-lead_time,< 2 wks,20,101
-lead_time,2-4 wks,3,73
-lead_time,1-2 mo,5,163
-lead_time,2-3 mo,-8,106
-lead_time,3-4 mo,1,106
-lead_time,4+ mo,8,186
-travel_month,2026-11,28,79
-travel_month,2026-12,7,179
-travel_month,2027-01,-8,133
-travel_month,2027-02,-8,97
-travel_month,2027-03,8,87
-travel_month,2027-04,3,80
-travel_month,2027-05,14,80
+depart_day,Mon,-7,17
+depart_day,Tue,0,99
+depart_day,Wed,5,138
+depart_day,Thu,0,147
+depart_day,Fri,6,212
+depart_day,Sat,9,250
+depart_day,Sun,12,96
+return_day,Mon,8,217
+return_day,Tue,1,118
+return_day,Wed,-1,127
+return_day,Thu,-6,37
+return_day,Fri,-8,16
+return_day,Sat,6,116
+return_day,Sun,10,328
+lead_time,< 2 wks,21,139
+lead_time,2-4 wks,3,96
+lead_time,1-2 mo,4,216
+lead_time,2-3 mo,-8,138
+lead_time,3-4 mo,2,132
+lead_time,4+ mo,8,238
+travel_month,2026-11,29,104
+travel_month,2026-12,7,248
+travel_month,2027-01,-9,168
+travel_month,2027-02,-8,123
+travel_month,2027-03,10,108
+travel_month,2027-04,4,104
+travel_month,2027-05,13,104
