@@ -1,1 +1,9 @@
 watched,city,dest,region,kind,price,typical,pct_vs_typical,depart_day,depart,return,nights,airlines,stops,history_days,dot_avg,pct_vs_dot,dot_low
+False,Las Vegas,LAS,USA,wknd,160,353,-55,Wed,2027-01-06,2027-01-09,3,F9,1,7,453,-65,305
+False,Dallas,DFW,USA,week,179,321,-44,Wed,2027-02-03,2027-02-10,7,Delta,0,7,550,-67,371
+False,Seattle,SEA,USA,wknd,215,347,-38,Fri,2027-01-22,2027-01-25,3,Frontier,1,7,521,-59,472
+False,Miami,MIA,USA,wknd,175,238,-26,Sat,2027-01-16,2027-01-19,3,F9,1,7,498,-65,357
+False,Barcelona,BCN,Europe,wknd,668,891,-25,Thu,2027-01-14,2027-01-17,3,American/British Airways,2,7,,,
+False,Nashville,BNA,USA,wknd,258,337,-23,Thu,2027-01-21,2027-01-24,3,Frontier,1,7,451,-43,240
+False,Montreal,YUL,Canada,wknd,466,599,-22,Fri,2026-12-11,2026-12-14,3,AA,1,7,,,
+False,Austin,AUS,USA,wknd,268,343,-22,Fri,2027-02-26,2027-02-28,2,Frontier,1,7,549,-51,456
